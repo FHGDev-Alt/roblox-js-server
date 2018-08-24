@@ -9,8 +9,8 @@ var Promise = require('bluebird');
 var app = express();
 var port = process.env.PORT || 8080;
 var settings = require('./settings.json');
-var key = settings.key;
-var maximumRank = settings.maximumRank || 255;
+var key = process.env.key;
+var maximumRank = process.env.maximumRank || 255;
 
 app.set('env', 'production');
 
@@ -488,7 +488,7 @@ app.use(function (err, req, res, next) {
 });
 
 function login () {
-  return rbx.login(settings.username, settings.password);
+  return rbx.login("ROFBot", process.env.password);
 }
 setInterval(login, 86400000);
 login().then(function () {
