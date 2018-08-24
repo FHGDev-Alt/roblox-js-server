@@ -10,7 +10,7 @@ var app = express();
 var port = process.env.PORT || 8080;
 var settings = require('./settings.json');
 var key = process.env.key;
-var maximumRank = process.env.maximumRank || 255;
+var maximumRank = process.env.maximumRank;
 
 app.set('env', 'production');
 
